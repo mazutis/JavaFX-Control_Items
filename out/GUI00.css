@@ -1,0 +1,6 @@
+.root {
+    -fx-background-color: linear-gradient(white, lightgrey);
+}
+.Button{
+    -fx-background-color: azure;
+}
