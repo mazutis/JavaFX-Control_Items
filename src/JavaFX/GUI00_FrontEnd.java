@@ -26,7 +26,8 @@ public class GUI00_FrontEnd extends Application {
     Scene scene;
     BorderPane layoutMain;
     GridPane layoutCenter1;
-    VBox   layoutCenterMethods, layoutCenterConstructors, layoutCenterControlItems, layoutCenterAbout, layoutCenterHelp;
+    VBox    layoutCenterMethods, layoutCenterConstructors, layoutCenterControlItems, layoutCenterAbout, layoutCenterHelp,
+            layoutContentProperties;
     MenuBar menuBar;
     Button  btnExit;
     Label  lblSpace, lblExit;
@@ -69,13 +70,17 @@ public class GUI00_FrontEnd extends Application {
             System.out.println("Menu Item Constructors has been choosen");
         });
 
-        MenuItem miMethod03 = new MenuItem("Method 03 (no action)");
-        miMethod03.setDisable(true);
+        MenuItem miProperties = new MenuItem("Properties");
+        miProperties.setOnAction (e-> {
+            layoutMain.setCenter(layoutContentProperties);
+            System.out.println("Menu Item Properties has been choose");
+        });
+        miProperties.setDisable(false);
 
         MenuItem miMethod04 = new MenuItem("Method 04 (no action)");
         miMethod04.setDisable(true);
 
-        methodsMenu.getItems().addAll(miMethods, miConstructors, miMethod03, miMethod04);
+        methodsMenu.getItems().addAll(miMethods, miConstructors, miProperties, miMethod04);
 
         //JavaFX Menu
         Menu javaFXMenu = new Menu("_JavaFX");
@@ -190,6 +195,11 @@ public class GUI00_FrontEnd extends Application {
         layoutCenterConstructors = new VBox();
         Content_Constructor contentConstructor = new Content_Constructor();
         contentConstructor.constructor (layoutCenterConstructors);
+
+        //Layout ContentProperties
+        layoutContentProperties = new VBox();
+        Content_Properties contentProperties = new Content_Properties();
+        contentProperties.properties (layoutContentProperties);
 
         //Layout CenterControlItems
         layoutCenterControlItems = new VBox();
