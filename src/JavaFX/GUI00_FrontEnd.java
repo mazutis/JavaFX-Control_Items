@@ -74,7 +74,7 @@ public class GUI00_FrontEnd extends Application {
         });
         miProperties.setDisable(false);
 
-        MenuItem miMethod04 = new MenuItem("Method 04 (no action)");
+        MenuItem miMethod04 = new MenuItem("Method 04 (no action -)");
         miMethod04.setDisable(true);
 
         methodsMenu.getItems().addAll(miMethods, miConstructors, miProperties, miMethod04);
@@ -230,7 +230,7 @@ public class GUI00_FrontEnd extends Application {
         scene.getStylesheets().add("JavaFX/GUI00.css");
 
         stage.setTitle ("Playground");
-        //stage.getIcons().add(new Image("JavaFX/32x32FavIcon.jpg"));//Classes folder of JavaFX Project
+        //stage.getIcons().add(new Image("JavaFX/32x32FavIcon.jpg")); //Classes folder of JavaFX Project
         stage.setOnCloseRequest(e -> {
             e.consume();
             closeScene();
@@ -257,5 +257,4 @@ public class GUI00_FrontEnd extends Application {
             stage.close();
         }
     }
-
 }
