@@ -4,15 +4,12 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import java.util.Scanner;
 
 /**
  * Created by ernes on 04/07/2016.
@@ -87,16 +84,26 @@ public class GUI00_FrontEnd extends Application {
 
         MenuItem miRandomNumber = new MenuItem("Random Number...");
         miRandomNumber.setOnAction ( e-> {
-            BoxRandomNumber rb = new BoxRandomNumber();
-            int result = rb.display();
+            Content_RandomNumber rb = new Content_RandomNumber();
+            int result = rb.display(); //int result = +returning result without retuning result: rb.display();
             System.out.println("Number received from random box: " + result);
         } );
+
+        MenuItem miFXML = new MenuItem ("FXML");
+        miFXML.setDisable(true);
+        miFXML.setOnAction( e-> {
+            Content_FXML fxml = new Content_FXML();
+            //fxml.display();
+            //fxml.start();
+        });
 
         MenuItem miControlItems = new MenuItem("Various Control Items");
         miControlItems.setOnAction (e -> {
             layoutMain.setCenter(layoutCenterControlItems);
         });
+
         javaFXMenu.getItems().add(miRandomNumber);
+        javaFXMenu.getItems().add(miFXML);
         javaFXMenu.getItems().add(new SeparatorMenuItem());
         javaFXMenu.getItems().add(miControlItems);
 
