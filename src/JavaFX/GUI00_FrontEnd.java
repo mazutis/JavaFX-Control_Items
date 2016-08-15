@@ -1,7 +1,9 @@
 package JavaFX;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -90,11 +92,14 @@ public class GUI00_FrontEnd extends Application {
         } );
 
         MenuItem miFXML = new MenuItem ("FXML");
-        miFXML.setDisable(true);
+        miFXML.setDisable(false);
         miFXML.setOnAction( e-> {
             Content_FXML fxml = new Content_FXML();
-            //fxml.display();
+            fxml.display();
             //fxml.start();
+            layoutMain.setCenter(layoutCenter1);
+            System.out.println("Menu Item New has been choosen");
+
         });
 
         MenuItem miControlItems = new MenuItem("Various Control Items");
@@ -151,7 +156,7 @@ public class GUI00_FrontEnd extends Application {
             System.out.println("Menu Item About has been choosen");
             layoutMain.setCenter(layoutCenterAbout);
         });
-        aboutMenuItem.setDisable(true);
+        aboutMenuItem.setDisable(false);
 
         MenuItem helpMenuItem = new MenuItem ("Help");
         helpMenuItem.setOnAction (e-> {
