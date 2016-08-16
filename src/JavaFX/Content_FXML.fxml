@@ -3,9 +3,9 @@
 <?import javafx.scene.layout.*?>
 
 <VBox prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="JavaFX.Controller_FXML">
+      fx:controller="JavaFX.Controller_FXML" fx:id="vboxFXML">
 
-    <Label text="Using Scene Builder is ease, but is it good enough to control every single pixel?"/>
-    <Button text="Let's see"/>
+    <Label text="Using Scene Builder is easy, but is it good enough to control every single pixel?" fx:id="labelFXML"/>
+    <Button text="Press me" fx:id="buttonFXML" onAction="#ButtonClickMethod"/>
 
 </VBox>

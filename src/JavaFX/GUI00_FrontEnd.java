@@ -1,7 +1,9 @@
 package JavaFX;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
@@ -24,7 +26,7 @@ public class GUI00_FrontEnd extends Application {
     BorderPane layoutMain;
     GridPane layoutCenter1;
     VBox    layoutCenterMethods, layoutCenterConstructors, layoutCenterControlItems, layoutCenterAbout, layoutCenterHelp,
-            layoutContentProperties;
+            layoutContentProperties, layoutCenterFXML;
     MenuBar menuBar;
     Button  btnExit;
     Label  lblSpace, lblExit;
@@ -90,11 +92,15 @@ public class GUI00_FrontEnd extends Application {
         } );
 
         MenuItem miFXML = new MenuItem ("FXML");
-        miFXML.setDisable(true);
+        miFXML.setDisable(false);
         miFXML.setOnAction( e-> {
             Content_FXML fxml = new Content_FXML();
+            layoutMain.setCenter(layoutCenterFXML);
             //fxml.display();
             //fxml.start();
+            //layoutMain.setCenter(layoutCenter1);
+            System.out.println("Menu Item New has been choosen");
+
         });
 
         MenuItem miControlItems = new MenuItem("Various Control Items");
@@ -151,7 +157,7 @@ public class GUI00_FrontEnd extends Application {
             System.out.println("Menu Item About has been choosen");
             layoutMain.setCenter(layoutCenterAbout);
         });
-        aboutMenuItem.setDisable(true);
+        aboutMenuItem.setDisable(false);
 
         MenuItem helpMenuItem = new MenuItem ("Help");
         helpMenuItem.setOnAction (e-> {
@@ -185,6 +191,7 @@ public class GUI00_FrontEnd extends Application {
         //Layout Center1
         VBox layoutCenter01 = new VBox();
         layoutCenter01.getChildren().addAll(lblSpace/*, btnExit, lblExit*/);
+
         layoutCenter1 = new GridPane ();
         layoutCenter1.setHgap(10);
         layoutCenter1.setVgap(10);
@@ -212,6 +219,11 @@ public class GUI00_FrontEnd extends Application {
         layoutCenterControlItems = new VBox();
         Content_VariousControlItems controlItems = new Content_VariousControlItems();
         controlItems.controlItems(layoutCenterControlItems);
+
+        //Layout CenterFXML
+        layoutCenterFXML = new VBox();
+        Content_FXML contentFXML = new Content_FXML();
+        contentFXML.fxml (layoutCenterFXML);
 
         //Layout LayoutCenterAbout
         layoutCenterAbout = new VBox();
